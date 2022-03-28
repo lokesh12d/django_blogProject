@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{user.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-warning" id="exampleModalLabel">Update Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-dark">
+        <form method="post" action="/dashboard">
+            {% csrf_token %}
+            <div class="row g-2">
+                <div class="col">
+                     <label class="col-form-label" for="title">Title</label>
+                     <input type="text" class="form-control" id="title" name="title" value="{{user.title}}" required>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col">
+                     <label class="col-form-label" for="phnox">Description</label>
+                     <input type="text" class="form-control" id="phnox" name="content" style="height:100px" value="{{user.content}}" required>
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                     <label class="col-form-label" for="ad">Author</label>
+                     <input type="text" class="form-control" id="ad" name="author" value="{{user.author}}" required>
+                </div>
+            </div><br>
+              <button type="submit" class="btn btn-warning" >Post</button>
+              <a href="/dashboard" class="btn btn-danger mx-1">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

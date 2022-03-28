@@ -1,0 +1,54 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-white bg-dark" style="font-family:'times new roman'; font-size:20px ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BlogOneEdit</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/" style="color:#F27E11"><i class="fa-solid fa-house-chimney"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about" style="color:#F27E11">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" style="color:#F27E11">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard" style="color:#F27E11">Dashboard</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color:#F27E11">
+                    {{request.user}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/changepassword">ChangePassword</a></li>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+            {% else %}
+            <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/" style="color:#F27E11">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about" style="color:#F27E11">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" style="color:#F27E11">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup" style="color:#F27E11">Signup</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login" style="color:#F27E11">login</a>
+                </li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="row">
+            <div class="col-sm-6 px-0">
+                <h1 class="display-4 font-italic">Read Our longer featured blog post..</h1>
+                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
+                    efficiently about what’s most interesting in this post’s contents.</p><br><br>
+                <p class="lead mb-0"><a href="/" class="text-white btn btn-outline-primary font-weight-bold px-3 py-3 shadow">Continue reading</a></p>
+            </div>
+            <div class="col-sm-6">
+                <img src="{% static 'images/eye.jpg' %}" height="400" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12 mb-2 ">
+    {% if messages %}
+    {% for message in messages %}
+    <p {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %}>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% for user in fm %}
+    <div class="jumbotron text-center text-white mt-5 mb-5 shadow" style="font-family:'times new roman'">
+        <h1 class="display-4 font-weight-bold">{{user.title}}</h1>
+        <p class="lead">{{user.content}}</p>
+        <a class="btn btn-primary btn-lg my-3" href="/details/{{user.id}}" role="button">Read more</a>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock body %}

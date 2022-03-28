@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/font.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" >
+
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-dark">
+        {% include 'navbar.html' %}
+    </div>
+    <div class="container">
+        <div class="row">
+          {% block side %}
+          {% endblock side %}
+          {% block body %}
+          {% endblock body %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+  <footer class="fixed-bottom font-small bg-dark">
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+      <a href="/"> BlogOneEdit</a>
+    </div>
+  </footer>
+<!-- Footer -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'js/popper.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'js/font.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.js' %}" crossorigin="anonymous"></script>
+  </body>
+</html>

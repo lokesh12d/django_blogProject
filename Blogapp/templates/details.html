@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Details{% endblock title %}
+
+{% block body %}
+<div class="container-fluid my-5 mt-5 mb-5 text-center shadow">
+    {% for pd in blog_id %}
+    <h3 class="text-center">{{pd.title}}</h3>
+    <small><p class="mx-3">{{pd.date}}</p></small>
+    <hr class="my-3">
+    <div class="container" style="margin:3px">
+        <p class="mx-3">{{pd.content}}</p>
+        <p style="padding-left:1100px"><small>Author: {{ pd.author }}</small></p>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
